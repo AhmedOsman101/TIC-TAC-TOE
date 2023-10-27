@@ -1,7 +1,8 @@
-const StartFirstGame = () => {
-	if (isFirstGame) {
-		isFirstGame = false;
-		SGM.classList.replace("hide", "show");
+import { v } from "./main";
+export const StartFirstGame = () => {
+	if (v.isFirstGame) {
+		v.isFirstGame = false;
+		v.SGM.classList.replace("hide", "show");
 		initGame();
 	} else {
 		GameVsPlayer();
@@ -9,15 +10,15 @@ const StartFirstGame = () => {
 };
 
 const GameVsPlayer = () => {
-	SGM.classList.replace("show", "hide");
+	v.SGM.classList.replace("show", "hide");
 	resetFunc();
 };
 
 const clicking = (e) => {
 	const currentSquare = e.target;
-	currentSquare.innerHTML = !circleTurn ? XElement : OElement;
+	currentSquare.innerHTML = !v.circleTurn ? v.XElement : v.OElement;
 	const currentData = getCurrentData(e);
-	(!circleTurn ? xLocations : circleLocations).push(currentData);
+	(!v.circleTurn ? v.xLocations : v.circleLocations).push(currentData);
 	swapTurns();
 	displayTurns();
 	checkWinner();
@@ -25,26 +26,26 @@ const clicking = (e) => {
 
 const initGame = () => {
 	displayTurns();
-	randomNumber = Math.floor(Math.random() * 3);
+	v.randomNumber = Math.floor(Math.random() * 3);
 	initBtns();
 	// gameReset.classList.add("hide");
-	squares.forEach((square) => {
+	v.squares.forEach((square) => {
 		square.innerHTML = "";
 		square.addEventListener("click", clicking, { once: true });
 	});
 };
 
 const resetFunc = () => {
-	circleTurn = false;
-	isDraw = false;
-	xLocations = [];
-	circleLocations = [];
+	v.circleTurn = false;
+	v.isDraw = false;
+	v.xLocations = [];
+	v.circleLocations = [];
 	initGame();
-	gameReset.classList.replace("hide", "show");
+	v.gameReset.classList.replace("hide", "show");
 };
 
 const initBtns = () => {
-	resetBtns.forEach((resetBtn) => {
+	v.resetBtns.forEach((resetBtn) => {
 		if (resetBtn.classList.contains("human")) {
 			resetBtn.addEventListener("click", resetFunc);
 			resetBtn.addEventListener("click", StartFirstGame);
@@ -59,38 +60,40 @@ const initBtns = () => {
 };
 
 const GameVsComputer = () => {
-	SGMBtns.classList.replace("show", "hide");
-	selectSide.classList.replace("hide", "show");
+	v.SGMBtns.classList.replace("show", "hide");
+	v.selectSide.classList.replace("hide", "show");
 	// initGame();
 };
 
 const RandomGame = () => {
 	console.log("Random Game");
-	randomNumber = Math.floor(Math.random() * 3);
-	console.log(randomNumber);
-	resetBtns[randomNumber].click();
+	v.randomNumber = Math.floor(Math.random() * 3);
+	console.log(v.randomNumber);
+	v.resetBtns[v.randomNumber].click();
 };
 
 function displayTurns() {
-	playerTurn.innerHTML = `Player ${!circleTurn ? XElement : OElement}'S turn`;
-	displayScore.innerHTML = `${XElement}: ${playerXscore} - ${playerOscore} :${OElement}`;
+	v.playerTurn.innerHTML = `Player ${
+		!v.circleTurn ? v.XElement : v.OElement
+	}'S turn`;
+	v.displayScore.innerHTML = `${v.XElement}: ${v.playerXscore} - ${v.playerOscore} :${v.OElement}`;
 }
 
-const swapTurns = () => (circleTurn = !circleTurn);
+const swapTurns = () => (v.circleTurn = !v.circleTurn);
 
 const getCurrentData = (e) => Number(e.target.getAttribute("data-current"));
 
 const checkWinner = () => {
-	for (const combo of winningCombos) {
-		if (combo.every((index) => xLocations.includes(index))) {
-			playerXscore++;
+	for (const combo of v.winningCombos) {
+		if (combo.every((index) => v.xLocations.includes(index))) {
+			v.playerXscore++;
 			displayTurns();
-			setTimeout(showEndMessage, 100, XElement);
+			setTimeout(showEndMessage, 100, v.XElement);
 			return;
-		} else if (combo.every((index) => circleLocations.includes(index))) {
-			playerOscore++;
+		} else if (combo.every((index) => v.circleLocations.includes(index))) {
+			v.playerOscore++;
 			displayTurns();
-			setTimeout(showEndMessage, 100, OElement);
+			setTimeout(showEndMessage, 100, v.OElement);
 			return;
 		}
 	}
@@ -98,17 +101,17 @@ const checkWinner = () => {
 };
 
 const checkDraw = () => {
-	if (xLocations.length + circleLocations.length === 9) {
-		isDraw = true;
-		playerXscore += 0.5;
-		playerOscore += 0.5;
+	if (v.xLocations.length + v.circleLocations.length === 9) {
+		v.isDraw = true;
+		v.playerXscore += 0.5;
+		v.playerOscore += 0.5;
 		displayTurns();
 		setTimeout(showEndMessage, 100, "It's a draw!");
 	}
 };
 
 const showEndMessage = (winner) => {
-	SGM.classList.replace("hide", "show");
-	winningMessage.classList.replace("hide", "show");
-	winningMessage.innerHTML = isDraw ? winner : `Player ${winner} won!`;
+	v.SGM.classList.replace("hide", "show");
+	v.winningMessage.classList.replace("hide", "show");
+	v.winningMessage.innerHTML = v.isDraw ? winner : `Player ${winner} won!`;
 };

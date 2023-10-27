@@ -1,3 +1,4 @@
+import { StartFirstGame } from "./functions";
 const playerTurn = document.getElementById("playerTurn");
 const squares = document.querySelectorAll(".square");
 const displayScore = document.getElementById("displayScore");
@@ -22,7 +23,31 @@ let playerXscore = 0;
 let computerXscore = 0;
 let playerOscore = 0;
 let computerOscore = 0;
-
+export const v = {
+	playerTurn,
+	squares,
+	displayScore,
+	resetBtns,
+	selectSideBtn,
+	SGM,
+	SGMBtns,
+	winningMessage,
+	selectSide,
+	gameReset,
+	randomNumber,
+	XElement,
+	OElement,
+	isFirstGame,
+	circleTurn,
+	isDraw,
+	xLocations,
+	circleLocations,
+	playerXscore,
+	computerXscore,
+	playerOscore,
+	computerOscore,
+	winningCombos,
+};
 const winningCombos = [
 	[0, 1, 2],
 	[3, 4, 5],
