@@ -23,6 +23,17 @@ let playerXscore = 0;
 let computerXscore = 0;
 let playerOscore = 0;
 let computerOscore = 0;
+const winningCombos = [
+	[0, 1, 2],
+	[3, 4, 5],
+	[6, 7, 8],
+	[0, 3, 6],
+	[1, 4, 7],
+	[2, 5, 8],
+	[0, 4, 8],
+	[2, 4, 6],
+];
+
 export const v = {
 	playerTurn,
 	squares,
@@ -48,16 +59,6 @@ export const v = {
 	computerOscore,
 	winningCombos,
 };
-const winningCombos = [
-	[0, 1, 2],
-	[3, 4, 5],
-	[6, 7, 8],
-	[0, 3, 6],
-	[1, 4, 7],
-	[2, 5, 8],
-	[0, 4, 8],
-	[2, 4, 6],
-];
 
 // call the initGame function to start the game
 StartFirstGame();
