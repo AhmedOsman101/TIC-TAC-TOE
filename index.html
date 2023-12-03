@@ -12,23 +12,26 @@
 		<link rel="stylesheet" href="assets/CSS/main.css" />
 	</head>
 	<body>
-		<div class="container">
-			<div id="select-game-mode" class="hide">
-				<div id="winningMessage" class="hide"></div>
-				<div class="text-boxes">
+		<div className="container">
+			<div id="select-game-mode" className="hide">
+				<!--  -->
+				<div id="winningMessage" className="hide"></div>
+				<!--  -->
+				<div className="text-boxes">
 					<h1>Select game mode</h1>
 				</div>
-				<div class="btn-group show" id="SGMBtns">
-					<button class="reset computer" data-opponent="computer">
-						<span class="fa-solid fa-desktop"></span>
+				<!--  -->
+				<div className="btn-group show" id="SGMBtns">
+					<button className="reset computer" data-opponent="computer">
+						<span className="fa-solid fa-desktop"></span>
 						<h4>player vs computer</h4>
 					</button>
-					<button class="reset human" data-opponent="human">
-						<span class="fa-regular fa-user"></span>
+					<button className="reset human" data-opponent="human">
+						<span className="fa-regular fa-user"></span>
 						<h4>player vs player</h4>
 					</button>
-					<button class="reset random" data-opponent="random">
-						<span class="shuffle">
+					<button className="reset random" data-opponent="random">
+						<span className="shuffle">
 							<svg
 								width="25"
 								height="25"
@@ -58,46 +61,48 @@
 						<h4>Random game</h4>
 					</button>
 				</div>
-				<div id="selectSide" class="hide">
+				<!--  -->
+				<div id="selectSide" className="hide">
 					<h3>select your side</h3>
-					<div class="btn-group">
+					<div className="btn-group">
 						<button data-side="x">
-							<span class="fa-x"></span>
+							<span className="fa-x"></span>
 						</button>
 						<button data-side="o">
-							<span class="fa-o"></span>
+							<span className="fa-o"></span>
 						</button>
 					</div>
 				</div>
 			</div>
-			<div class="title">
+			<!--  -->
+			<div className="title">
 				<h1>Tic Tac Toe</h1>
 				<h2 id="displayScore"></h2>
 				<h3 id="playerTurn"></h3>
 			</div>
 			<div id="board">
-				<div class="square" data-current="0"></div>
-				<div class="square" data-current="1"></div>
-				<div class="square" data-current="2"></div>
-				<div class="square" data-current="3"></div>
-				<div class="square" data-current="4"></div>
-				<div class="square" data-current="5"></div>
-				<div class="square" data-current="6"></div>
-				<div class="square" data-current="7"></div>
-				<div class="square" data-current="8"></div>
+				<div className="square" data-current="0"></div>
+				<div className="square" data-current="1"></div>
+				<div className="square" data-current="2"></div>
+				<div className="square" data-current="3"></div>
+				<div className="square" data-current="4"></div>
+				<div className="square" data-current="5"></div>
+				<div className="square" data-current="6"></div>
+				<div className="square" data-current="7"></div>
+				<div className="square" data-current="8"></div>
 			</div>
-			<div class="main-btn hide">
-				<div class="btn-group">
-					<button class="reset computer" data-opponent="computer">
-						<span class="fa-solid fa-desktop"></span>
+			<div className="main-btn hide">
+				<div className="btn-group">
+					<button className="reset computer" data-opponent="computer">
+						<span className="fa-solid fa-desktop"></span>
 						<h4>player vs computer</h4>
 					</button>
-					<button class="reset human" data-opponent="human">
-						<span class="fa-regular fa-user"></span>
+					<button className="reset human" data-opponent="human">
+						<span className="fa-regular fa-user"></span>
 						<h4>player vs player</h4>
 					</button>
-					<button class="reset random" data-opponent="random">
-						<span class="shuffle">
+					<button className="reset random" data-opponent="random">
+						<span className="shuffle">
 							<svg
 								width="36"
 								height="31"
@@ -127,14 +132,14 @@
 						<h4>Random game</h4>
 					</button>
 				</div>
-				<div id="selectSide" class="hide">
+				<div id="selectSide" className="hide">
 					<h3>select your side</h3>
-					<div class="btn-group">
+					<div className="btn-group">
 						<button data-side="x">
-							<span class="fa-x"></span>
+							<span className="fa-x"></span>
 						</button>
 						<button data-side="o">
-							<span class="fa-o"></span>
+							<span className="fa-o"></span>
 						</button>
 					</div>
 				</div>

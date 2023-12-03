@@ -5,16 +5,12 @@
 	--btn-color: #13274a;
 }
 
-@font-face {
-	font-family: "Cairo", sans-serif;
-	src: url("/assets/fonts/Cairo-VariableFont_slnt\,wght.ttf");
-}
-
 body {
 	display: grid;
 	place-items: center;
 	background-color: var(--dark-color);
-	overflow: hidden;
+	/* overflow: hidden; */
+	min-height: 100vh;
 }
 
 * {
@@ -106,12 +102,16 @@ svg {
 	font-size: calc(100px * 0.8);
 }
 
-.fa-x {
+.fa-x path {
 	color: #09c372;
 }
 
-.fa-o {
+.fa-o path {
 	color: #498afb;
+}
+
+.fa-o path {
+	background: linear-gradient(#498afb, #09c372);
 }
 
 #playerTurn .fa-o,
